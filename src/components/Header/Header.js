@@ -2,22 +2,32 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 
+// AUTHENTICATED
 const authenticatedOptions = (
   <Fragment>
+    {/* "Entries Link"*/}
+    <Nav.Link href="#entries">Entries</Nav.Link>
+    {/* "CP Link"*/}
     <Nav.Link href="#change-password">Change Password</Nav.Link>
+    {/* "Sign-Out Link"*/}
     <Nav.Link href="#sign-out">Sign Out</Nav.Link>
   </Fragment>
 )
 
+ // UNAUTHENTICATED
 const unauthenticatedOptions = (
   <Fragment>
+    {/* "Sign-Up Link"*/}
     <Nav.Link href="#sign-up">Sign Up</Nav.Link>
+    {/* "Sign-In Link"*/}
     <Nav.Link href="#sign-in">Sign In</Nav.Link>
   </Fragment>
 )
 
+// ALWAYS
 const alwaysOptions = (
   <Fragment>
+    {/* "Home Link"*/}
     <Nav.Link href="#/">Home</Nav.Link>
   </Fragment>
 )
@@ -25,7 +35,7 @@ const alwaysOptions = (
 const Header = ({ user }) => (
   <Navbar bg="primary" variant="dark" expand="md">
     <Navbar.Brand href="#">
-      react-auth-template
+      AppTrack
     </Navbar.Brand>
     <Navbar.Toggle aria-controls="basic-navbar-nav" />
     <Navbar.Collapse id="basic-navbar-nav">
