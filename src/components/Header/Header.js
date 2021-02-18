@@ -33,7 +33,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
+  <Navbar bg="primary" variant="dark" expand="md" className="navbar1">
     <Navbar.Brand href="#">
       AppTrack
     </Navbar.Brand>
