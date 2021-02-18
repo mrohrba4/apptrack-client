@@ -1,1 +1,30 @@
+// colors:
+$one: #DEE2E6;
+$two: #CED4DA;
+$three: #ADB5BD;
+$four: #6C757D;
+$five: #495057;
+$six: #343A40;
+$seven: #212529;
+
+// overide
+$primary: $three;
+$success: $two;
 @import '~bootstrap/scss/bootstrap';
+
+// Home.js main row
+.mainrow1 {
+  border: 1px solid black;
+  // display: flex;
+  // align-items: stretch;
+  // position: absolute;
+  top: 60px;
+  bottom: 0;
+}
+// // Home.js main col
+// .maincol1 {
+//   display: flex;
+//   flex-direction: column;
+//   text-align: center;
+//
+// }
