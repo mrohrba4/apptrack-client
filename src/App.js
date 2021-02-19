@@ -10,6 +10,7 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import Main from './components/Home/Home'
+import Entries from './components/Entry/ShowEntries'
 
 class App extends Component {
   constructor (props) {
@@ -65,6 +66,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/entries' render={() => (
+            <Entries user={user} />
           )} />
         </main>
         <Main />

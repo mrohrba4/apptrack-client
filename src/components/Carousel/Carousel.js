@@ -5,7 +5,7 @@ export class BsCarousel extends Component {
   render() {
     return (
       <div>
-        <div class='container-fluid'>
+        <div className='container-fluid'>
 
 
           <Carousel>
