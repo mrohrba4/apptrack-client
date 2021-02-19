@@ -10,16 +10,17 @@ import SignIn from './components/SignIn/SignIn'
 import SignOut from './components/SignOut/SignOut'
 import ChangePassword from './components/ChangePassword/ChangePassword'
 import Main from './components/Home/Home'
-import Entries from './components/Entry/ShowEntries'
+import IndexEntries from './components/Entry/ShowEntries'
 
 class App extends Component {
   constructor (props) {
     super(props)
     this.state = {
       user: null,
-      msgAlerts: []
-    }
+      msgAlerts: [],
+    };
   }
+
 
   setUser = user => this.setState({ user })
 
@@ -68,7 +69,7 @@ class App extends Component {
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
           <AuthenticatedRoute user={user} path='/entries' render={() => (
-            <Entries user={user} />
+            <IndexEntries user={user} />
           )} />
         </main>
         <Main />

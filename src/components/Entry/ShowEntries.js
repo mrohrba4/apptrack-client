@@ -7,7 +7,7 @@ class IndexEntries extends Component {
     super(props)
 
     this.state = {
-      entries: null
+      entries: []
     }
   }
 
@@ -32,8 +32,8 @@ class IndexEntries extends Component {
     }
     return (
       <div>
-        <h2>All Entries</h2>
-        {entriesJsx}
+        <h2 className="entrytitle1">Your Entries</h2>
+        <p className="entrystatus">{entriesJsx}</p>
       </div>
     )
   }
