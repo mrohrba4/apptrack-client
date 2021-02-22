@@ -7,6 +7,8 @@ const authenticatedOptions = (
   <Fragment>
     {/* "Entries Link"*/}
     <Nav.Link href="#entries">Entries</Nav.Link>
+    {/* "Create Entry Link"*/}
+    <Nav.Link href="#create-entry">Create Entry</Nav.Link>
     {/* "CP Link"*/}
     <Nav.Link href="#change-password">Change Password</Nav.Link>
     {/* "Sign-Out Link"*/}

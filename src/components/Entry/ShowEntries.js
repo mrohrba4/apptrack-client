@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
+import Entry from './Entry'
 
 class IndexEntries extends Component {
   constructor (props) {
@@ -12,7 +13,13 @@ class IndexEntries extends Component {
   }
 
   componentDidMount () {
-    axios(apiUrl + '/entries/')
+    const { user } = this.props
+    axios({
+      url: apiUrl + '/entries/',
+      method: 'get',
+      headers: {
+        'Authorization': `Token ${user.token}`
+      }})
       .then(res => this.setState({ entries: res.data.entries }))
       .catch(console.error)
   }
@@ -26,14 +33,25 @@ class IndexEntries extends Component {
       entriesJsx = 'No entries to display.'
     } else {
       entriesJsx = this.state.entries.map(entry => (
-        <li key={entry._id}>
-        </li>
+        <div key={entry.id}>
+        <Entry
+          key={entry.id}
+          id={entry.id}
+          company={entry.company}
+          position={entry.position}
+          link={entry.link}
+          date_applied={entry.date_applied}
+          status={entry.status}
+          notes={entry.notes}/>
+          </div>
       ))
     }
     return (
       <div>
         <h2 className="entrytitle1">Your Entries</h2>
-        <p className="entrystatus">{entriesJsx}</p>
+        <div className="entrydata1">
+        {entriesJsx}
+        </div>
       </div>
     )
   }

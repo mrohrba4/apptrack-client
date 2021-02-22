@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import axios from 'axios'
-import apiUrl from '../apiConfig'
+import apiUrl from '../../apiConfig'
 import { Redirect } from 'react-router-dom'
 import EntryForm from './EntryForm'
 
@@ -33,9 +33,13 @@ class CreateEntry extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault()
+    const { user } = this.props
     axios({
       method: 'post',
       url: `${apiUrl}/entries/`,
+      headers: {
+      'Authorization': `Token ${user.token}`
+    },
       data: { entry: this.state.entry }
     })
       .then(() => this.setState({ created: true }))
