@@ -12,6 +12,7 @@ import ChangePassword from './components/ChangePassword/ChangePassword'
 import Main from './components/Home/Home'
 import IndexEntries from './components/Entry/ShowEntries'
 import CreateEntry from './components/Entry/CreateEntry'
+import ViewEntry from './components/Entry/ViewEntry'
 
 class App extends Component {
   constructor (props) {
@@ -74,6 +75,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/create-entry' render={() => (
             <CreateEntry user={user} />
+          )} />
+          <AuthenticatedRoute user={user} path='/view-entry' render={() => (
+            <ViewEntry user={user} />
           )} />
         </main>
         <Main />

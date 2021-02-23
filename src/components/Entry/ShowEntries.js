@@ -2,13 +2,16 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import Entry from './Entry'
+// import ViewEntry from './ViewEntry'
+// import { Link } from 'react-router-dom'
 
 class IndexEntries extends Component {
   constructor (props) {
     super(props)
 
     this.state = {
-      entries: []
+      entries: [],
+      viewOne: false
     }
   }
 
@@ -24,9 +27,12 @@ class IndexEntries extends Component {
       .catch(console.error)
   }
 
+
+
   render () {
     let entriesJsx
-
+    const { entries } = this.state
+    console.log(entries)
     if (this.state.entries === null) {
       entriesJsx = 'Loading...'
     } else if (this.state.entries.length === 0) {
@@ -46,6 +52,7 @@ class IndexEntries extends Component {
           </div>
       ))
     }
+
     return (
       <div>
         <h2 className="entrytitle1">Your Entries</h2>

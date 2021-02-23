@@ -1,5 +1,6 @@
 import React from 'react'
 
+
 const Entry = ({ id, company, position, link, date_applied, status, notes }) => (
   <div className="entrybox1">
   <ul>
