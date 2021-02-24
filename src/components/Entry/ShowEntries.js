@@ -11,12 +11,13 @@ class IndexEntries extends Component {
 
     this.state = {
       entries: [],
-      viewOne: false
+      isActive: false
     }
   }
 
   componentDidMount () {
     const { user } = this.props
+    this.setState({ isActive: true})
     axios({
       url: apiUrl + '/entries/',
       method: 'get',

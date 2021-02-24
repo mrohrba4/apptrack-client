@@ -20,8 +20,21 @@ class App extends Component {
     this.state = {
       user: null,
       msgAlerts: [],
+      isActive: false
     };
   }
+
+  showMain = () => (
+    <Fragment>
+      <Main/>
+    </Fragment>
+  )
+
+  showEntries = () => (
+    <Fragment>
+      <IndexEntries/>
+    </Fragment>
+  )
 
 
   setUser = user => this.setState({ user })
@@ -43,8 +56,8 @@ class App extends Component {
 
   render () {
     const { msgAlerts, user } = this.state
-
     return (
+
       <Fragment>
         <Header user={user} />
         {msgAlerts.map(msgAlert => (
@@ -57,6 +70,9 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
+        <Route exact path='/' render={() => (
+          <Main/>
+        )} />
         <main className="container">
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
@@ -80,8 +96,8 @@ class App extends Component {
             <ViewEntry user={user} />
           )} />
         </main>
-        <Main />
       </Fragment>
+
     )
   }
 }

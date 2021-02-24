@@ -1,18 +1,12 @@
 import React from 'react'
+import { Grid } from '@material-ui/core'
 // React-Bootstrap imports
-import Container from 'react-bootstrap/Container'
-import Row from 'react-bootstrap/Row'
-import Col from 'react-bootstrap/Col'
 import BsCarousel from '../Carousel/Carousel'
 
 const Main = () => (
-  <Container fluid>
-    <Row className="mainrow1">
-      <Col className="maincol1">
-        <BsCarousel />
-      </Col>
-    </Row>
-  </Container>
+  <Grid direction="row" justify="center" alignItems="center" container={true}>
+      <BsCarousel />
+  </Grid>
 )
 
 export default Main
