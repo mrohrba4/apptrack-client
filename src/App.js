@@ -2,8 +2,11 @@ import React, { Component, Fragment } from 'react'
 import { Route } from 'react-router-dom'
 import { v4 as uuid } from 'uuid'
 
+// Utilities
 import AuthenticatedRoute from './components/AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from './components/AutoDismissAlert/AutoDismissAlert'
+
+// Component Imports
 import Header from './components/Header/Header'
 import SignUp from './components/SignUp/SignUp'
 import SignIn from './components/SignIn/SignIn'
@@ -19,34 +22,22 @@ class App extends Component {
     super(props)
     this.state = {
       user: null,
-      msgAlerts: [],
-      isActive: false
+      msgAlerts: []
     };
   }
 
-  showMain = () => (
-    <Fragment>
-      <Main/>
-    </Fragment>
-  )
-
-  showEntries = () => (
-    <Fragment>
-      <IndexEntries/>
-    </Fragment>
-  )
-
-
+  // USER
   setUser = user => this.setState({ user })
-
   clearUser = () => this.setState({ user: null })
 
+  // Remove Alert
   deleteAlert = (id) => {
     this.setState((state) => {
       return { msgAlerts: state.msgAlerts.filter(msg => msg.id !== id) }
     })
   }
 
+  // Message Alert
   msgAlert = ({ heading, message, variant }) => {
     const id = uuid()
     this.setState((state) => {
@@ -59,6 +50,7 @@ class App extends Component {
     return (
 
       <Fragment>
+        {/* Nav Bar */}
         <Header user={user} />
         {msgAlerts.map(msgAlert => (
           <AutoDismissAlert
@@ -70,28 +62,44 @@ class App extends Component {
             deleteAlert={this.deleteAlert}
           />
         ))}
+
+        {/* Main */}
         <Route exact path='/' render={() => (
           <Main/>
         )} />
         <main className="container">
+
+          {/* Sign-Up */}
           <Route path='/sign-up' render={() => (
             <SignUp msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
+
+          {/* Sign-In */}
           <Route path='/sign-in' render={() => (
             <SignIn msgAlert={this.msgAlert} setUser={this.setUser} />
           )} />
+
+          {/* Sign-Out */}
           <AuthenticatedRoute user={user} path='/sign-out' render={() => (
             <SignOut msgAlert={this.msgAlert} clearUser={this.clearUser} user={user} />
           )} />
+
+          {/* Change Password*/}
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
+
+          {/* Show All Entries */}
           <AuthenticatedRoute user={user} path='/entries' render={() => (
             <IndexEntries user={user} />
           )} />
+
+          {/* Create an Entry */}
           <AuthenticatedRoute user={user} path='/create-entry' render={() => (
             <CreateEntry user={user} />
           )} />
+
+          {/* View an Entry*/}
           <AuthenticatedRoute user={user} path='/view-entry' render={() => (
             <ViewEntry user={user} />
           )} />

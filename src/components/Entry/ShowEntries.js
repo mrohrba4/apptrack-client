@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import Entry from './Entry'
+import { Grid } from '@material-ui/core'
 // import ViewEntry from './ViewEntry'
 // import { Link } from 'react-router-dom'
 
@@ -10,14 +11,12 @@ class IndexEntries extends Component {
     super(props)
 
     this.state = {
-      entries: [],
-      isActive: false
+      entries: []
     }
   }
 
   componentDidMount () {
     const { user } = this.props
-    this.setState({ isActive: true})
     axios({
       url: apiUrl + '/entries/',
       method: 'get',
@@ -41,25 +40,32 @@ class IndexEntries extends Component {
     } else {
       entriesJsx = this.state.entries.map(entry => (
         <div key={entry.id}>
-        <Entry
-          key={entry.id}
-          id={entry.id}
-          company={entry.company}
-          position={entry.position}
-          link={entry.link}
-          date_applied={entry.date_applied}
-          status={entry.status}
-          notes={entry.notes}/>
+          <Entry
+            key={entry.id}
+            id={entry.id}
+            company={entry.company}
+            position={entry.position}
+            link={entry.link}
+            date_applied={entry.date_applied}
+            status={entry.status}
+            notes={entry.notes}/>
           </div>
       ))
     }
 
     return (
       <div>
+      <Grid container
+            direction="column"
+            justify="center"
+            alignItems="center">
         <h2 className="entrytitle1">Your Entries</h2>
         <div className="entrydata1">
-        {entriesJsx}
+        <Grid item xs>
+          {entriesJsx}
+        </Grid>
         </div>
+      </Grid>
       </div>
     )
   }
