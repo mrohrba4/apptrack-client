@@ -13,7 +13,7 @@ $success: $two;
 @import '~bootstrap/scss/bootstrap';
 
 body {
-  background-color: $seven;
+  background-color: $four;
 }
 // Home.js main row
 .mainrow1 {
@@ -39,23 +39,26 @@ body {
   opacity: 0.5;
 }
 .entrytitle1 {
-  color: $two;
+  color: $six;
 }
 .entrystatus {
-  color: $two;
+  color: $six;
 }
 .entrydata1 {
-  color: $two;
+  color: $six;
 }
 .entrylabel1 {
   font-weight: bold;
 }
 .entrybox1 {
-  border: 1px $two solid;
+  border: 1px $six solid;
 }
 .entryrow1 {
   display: flex;
 }
 .entrycol1 {
   display: flex;
+}
+.ctf {
+  color: $two;
 }

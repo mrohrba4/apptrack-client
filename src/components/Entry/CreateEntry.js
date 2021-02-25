@@ -3,6 +3,7 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import { Redirect } from 'react-router-dom'
 import EntryForm from './EntryForm'
+import { Grid } from '@material-ui/core'
 
 class CreateEntry extends Component {
   constructor () {
@@ -52,12 +53,19 @@ class CreateEntry extends Component {
     }
     return (
       <Fragment>
+      <Grid container
+            direction="column"
+            justify="center"
+            alignItems="center">
         <h2>Create An Entry</h2>
+        <Grid item>
         <EntryForm
           entry={this.state.entry}
           handleSubmit={this.handleSubmit}
           handleInputChange={this.handleInputChange}
         />
+        </Grid>
+        </Grid>
       </Fragment>
     )
   }

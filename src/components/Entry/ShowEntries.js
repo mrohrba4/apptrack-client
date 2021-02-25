@@ -58,7 +58,7 @@ class IndexEntries extends Component {
       <Grid container
             direction="column"
             justify="center"
-            alignItems="center">
+            alignItems="stretch">
         <h2 className="entrytitle1">Your Entries</h2>
         <div className="entrydata1">
         <Grid item xs>
