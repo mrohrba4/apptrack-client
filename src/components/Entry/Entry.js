@@ -1,18 +1,18 @@
 import React from 'react'
+import TableCell from '@material-ui/core/TableCell';
+// import TableRow from '@material-ui/core/TableRow';
+
 
 
 const Entry = ({ id, company, position, link, date_applied, status, notes }) => (
-  <div className="entrybox1">
-  <ul>
-    <li><span className="entrylabel1">ID: {id}</span></li>
-    <li><span className="entrylabel1">Company:</span> {company}</li>
-    <li><span className="entrylabel1">Position:</span> {position}</li>
-    <li><span className="entrylabel1">Link:</span> {link}</li>
-    <li><span className="entrylabel1">Date Applied:</span> {date_applied}</li>
-    <li><span className="entrylabel1">Status:</span> {status}</li>
-    <li><span className="entrylabel1">Notes:</span> {notes}</li>
-  </ul>
-  </div>
+        <React.Fragment>
+            <TableCell>{id}</TableCell>
+            <TableCell>{company}</TableCell>
+            <TableCell>{position}</TableCell>
+            <TableCell>{link}</TableCell>
+            <TableCell>{date_applied}</TableCell>
+            <TableCell>{status}</TableCell>
+            <TableCell>{notes}</TableCell>
+        </React.Fragment>
 )
-
 export default Entry
